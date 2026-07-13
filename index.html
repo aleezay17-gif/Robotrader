@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoboTrader — Automated Trading Floor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TICKER STRIP -->
+  <div class="ticker-strip" id="tickerStrip" aria-hidden="true"></div>
+
+  <header class="floor-header">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="var(--copper)" stroke-width="2"/>
+        <path d="M20 8v6M20 26v6M8 20h6M26 20h6" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="5" fill="var(--copper)"/>
+      </svg>
+      <div>
+        <h1>ROBOTRADER</h1>
+        <p class="tagline">You supply the capital. The bots supply the labor.</p>
+      </div>
+    </div>
+    <div class="stat-cluster">
+      <div class="stat">
+        <span class="stat-label">Cash</span>
+        <span class="stat-value" id="statCash">$0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Holdings</span>
+        <span class="stat-value" id="statHoldings">$0</span>
+      </div>
+      <div class="stat stat-highlight">
+        <span class="stat-label">Net Worth</span>
+        <span class="stat-value" id="statNetWorth">$0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Day</span>
+        <span class="stat-value" id="statTick">0</span>
+      </div>
+    </div>
+  </header>
+
+  <svg class="circuit-divider" viewBox="0 0 1000 24" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 12 H400 L420 2 H460 L480 12 H1000" stroke="var(--copper)" stroke-width="1.5" fill="none" opacity="0.5"/>
+  </svg>
+
+  <main class="floor-grid">
+
+    <!-- MARKET PANEL -->
+    <section class="panel market-panel">
+      <h2 class="panel-title"><span class="eyebrow">01</span> Market Feed</h2>
+      <div class="stock-list" id="stockList"></div>
+    </section>
+
+    <!-- BOTS PANEL -->
+    <section class="panel bots-panel">
+      <h2 class="panel-title"><span class="eyebrow">02</span> Trading Bots</h2>
+      <p class="panel-sub">Deploy a bot and it trades automatically, every day, using its own strategy.</p>
+      <div class="bot-shop" id="botShop"></div>
+      <div class="bot-fleet" id="botFleet"></div>
+    </section>
+
+    <!-- LOG PANEL -->
+    <section class="panel log-panel">
+      <h2 class="panel-title"><span class="eyebrow">03</span> Activity Log</h2>
+      <div class="log-feed" id="logFeed"></div>
+    </section>
+
+  </main>
+
+  <footer class="floor-footer">
+    <p>Reach <strong>$5,000</strong> net worth to win — or just see how long your bots can keep you solvent.</p>
+    <button id="resetBtn" class="btn btn-ghost">Reset Simulation</button>
+  </footer>
+
+  <div class="win-overlay" id="winOverlay">
+    <div class="win-card">
+      <h2>Fleet Objective Complete</h2>
+      <p id="winText"></p>
+      <button id="winContinueBtn" class="btn btn-primary">Keep Trading</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
